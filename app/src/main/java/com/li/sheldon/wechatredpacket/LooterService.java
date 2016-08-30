@@ -94,7 +94,7 @@ public class LooterService extends AccessibilityService {
         }
 
         if(event.getEventType() == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED){
-            List<AccessibilityNodeInfo> backList_1 = mAccessNodeInfo.findAccessibilityNodeInfosByText("看看大家的手气");
+            List<AccessibilityNodeInfo> backList_1 = mAccessNodeInfo.findAccessibilityNodeInfosByText("查看我的红包记录");
             if(backList_1.size() > 0){
                 Log.e(TAG,"TYPE_WINDOW_STATE_CHANGED : (back)");
                 Log.i(TAG,"backList.size() = "+backList_1.size());
@@ -105,6 +105,13 @@ public class LooterService extends AccessibilityService {
             if(backList_2.size() > 0){
                 Log.e(TAG,"TYPE_WINDOW_STATE_CHANGED : (back)");
                 Log.i(TAG,"backList.size() = "+backList_2.size());
+                performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK);
+            }
+
+            List<AccessibilityNodeInfo> backList_3 = mAccessNodeInfo.findAccessibilityNodeInfosByText("红包派完了");
+            if(backList_3.size() > 0){
+                Log.e(TAG,"TYPE_WINDOW_STATE_CHANGED : (back)");
+                Log.i(TAG,"backList.size() = "+backList_3.size());
                 performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK);
             }
         }
